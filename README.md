@@ -120,7 +120,7 @@ cypress/
 - **BDD**: Cenários escritos em formato Dado/Quando/Então
 - **Data-Driven Testing**: Uso de múltiplos conjuntos de dados nos testes
 
-## 📋 Cenários de Teste
+## Cenários de Teste
 
 1. **Login com Credenciais Válidas**
    - Verifica o fluxo completo de login com sucesso
