@@ -5,9 +5,9 @@
 
 Projeto de testes automatizados para páginas de login usando Cypress com Page Objects Pattern.
 
-> 🔗 [Ver no GitHub](https://github.com/CarlosLemosDev/Testes-automatizados-com-Cypress)
+>  [Ver no GitHub](https://github.com/CarlosLemosDev/Testes-automatizados-com-Cypress)
 
-## 🔄 Ambientes de Teste
+##  Ambientes de Teste
 
 Este projeto suporta três modos de execução:
 
@@ -40,7 +40,7 @@ npm run cypress:run:local
 - Documentados em [ALTERNATIVE_SITES.md](ALTERNATIVE_SITES.md)
 - Útil para demonstrações
 
-## 🌐 Sites Alternativos para Testes
+##  Sites Alternativos para Testes
 
 Em caso de instabilidade do site principal, os testes podem ser adaptados para os seguintes sites:
 
@@ -56,7 +56,7 @@ Em caso de instabilidade do site principal, os testes podem ser adaptados para o
 
 Para usar um site alternativo, modifique a `baseUrl` em `cypress.config.js` e ajuste os seletores em `LoginPage.js`.
 
-## 🔍 Funcionalidades Testadas
+##  Funcionalidades Testadas
 
 - Login com credenciais válidas
 - Validação de formato de email
@@ -64,12 +64,12 @@ Para usar um site alternativo, modifique a `baseUrl` em `cypress.config.js` e aj
 - Acesso à recuperação de senha
 - Processo de criação de conta
 
-## ⚙️ Pré-requisitos
+##  Pré-requisitos
 
 - Node.js (versão 18 ou superior)
 - NPM (versão 8 ou superior)
 
-## 🚀 Instalação e Configuração
+##  Instalação e Configuração
 
 1. Clone o repositório:
 ```bash
@@ -89,7 +89,7 @@ npm install
 }
 ```
 
-## 🧪 Executando os Testes
+##  Executando os Testes
 
 ### Modo Interativo
 ```bash
@@ -101,7 +101,7 @@ npm run cypress:open
 npm run cypress:run
 ```
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 cypress/
@@ -114,7 +114,7 @@ cypress/
     └── e2e.js         # Configurações globais
 ```
 
-## 🔰 Padrões Utilizados
+##  Padrões Utilizados
 
 - **Page Objects**: Para melhor organização e reusabilidade do código
 - **BDD**: Cenários escritos em formato Dado/Quando/Então
@@ -142,7 +142,7 @@ cypress/
    - Testa início do processo de registro
    - Verifica exibição do formulário de cadastro
 
-## � Notas Técnicas
+##  Notas Técnicas
 
 - Configuração otimizada para lidar com CORS
 - Timeouts e retries para maior estabilidade
