@@ -1,10 +1,10 @@
 const { LoginPage } = require('../pages/LoginPage')
 
-describe('Testes da Página de Login - Automation Practice', () => {
+describe('Funcionalidade: Login no sistema de e-commerce', () => {
     const loginPage = new LoginPage()
 
     beforeEach(() => {
-        // Configuração específica para ambiente mock
+        // Dado que o usuário esteja na página de autenticação
         if (Cypress.env('USE_MOCK')) {
             cy.intercept('GET', '/index.php?controller=authentication*').as('loginPage')
             cy.intercept('POST', '/index.php?controller=authentication', (req) => {
@@ -38,27 +38,24 @@ describe('Testes da Página de Login - Automation Practice', () => {
         loginPage.visit()
     })
 
-    /**
-     * Cenário: Login com credenciais válidas
-     * • Dado que o usuário esteja na página de autenticação
-     * • Quando inserir email e senha válidos
-     * • Então deve ser redirecionado para sua conta
-     */
-    it('Deve fazer login com sucesso usando credenciais válidas', () => {
-        // Configuração dos dados de teste
-        const testData = {
-            email: Cypress.env('USER_EMAIL') || 'user@test.com',
-            password: Cypress.env('USER_PASSWORD') || 'password123'
-        }
+    describe('Cenário: Login com sucesso', () => {
+        it('Dado que o usuário está na página de login, quando inserir credenciais válidas, então deve acessar sua conta', () => {
+            // Dado que o usuário está na página de login
+            // (configurado no beforeEach)
 
-        // Ação de login
-        loginPage.login(testData.email, testData.password)
+            // Quando inserir credenciais válidas
+            const testData = {
+                email: Cypress.env('USER_EMAIL') || 'user@test.com',
+                password: Cypress.env('USER_PASSWORD') || 'password123'
+            }
+            loginPage.login(testData.email, testData.password)
 
-        // Verificações
-        cy.url().should('include', 'controller=my-account')
-        loginPage.getAccountInfo()
-            .should('be.visible')
-            .and('contain', 'Welcome to your account')
+            // Então deve acessar sua conta
+            cy.url().should('include', 'controller=my-account')
+            loginPage.getAccountInfo()
+                .should('be.visible')
+                .and('contain', 'Welcome to your account')
+        })
     })
 
     /**
