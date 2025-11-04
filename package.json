@@ -5,7 +5,9 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "test": "cypress run --spec \"cypress/e2e/login.cy.js\""
+    "cypress:run:local": "cypress run --config baseUrl=http://localhost/prestashop",
+    "cypress:run:mock": "cypress run --env USE_MOCK=true",
+    "test": "npm run cypress:run:mock"
   },
   "keywords": [],
   "author": "",

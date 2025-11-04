@@ -15,3 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './mock-commands'
+
+// Configure os mocks antes de cada teste
+beforeEach(() => {
+  cy.mockWebsite()
+})

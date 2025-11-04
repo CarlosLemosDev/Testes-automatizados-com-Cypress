@@ -7,6 +7,39 @@ Projeto de testes automatizados para páginas de login usando Cypress com Page O
 
 > 🔗 [Ver no GitHub](https://github.com/CarlosLemosDev/Testes-automatizados-com-Cypress)
 
+## 🔄 Ambientes de Teste
+
+Este projeto suporta três modos de execução:
+
+### 1. Mock Service (Padrão)
+- Simula todas as respostas do servidor
+- Não requer conexão externa
+- Execução rápida e confiável
+- Ideal para CI/CD
+
+Para executar com mocks:
+```bash
+npm run cypress:run
+```
+
+### 2. Ambiente Local
+- Requer XAMPP e PrestaShop
+- Controle total do ambiente
+- Mais próximo do ambiente real
+- Ideal para desenvolvimento
+
+Para configurar:
+1. Siga as instruções em [LOCAL_SETUP.md](LOCAL_SETUP.md)
+2. Execute:
+```bash
+npm run cypress:run:local
+```
+
+### 3. Sites Alternativos
+- Opções de fallback para testes
+- Documentados em [ALTERNATIVE_SITES.md](ALTERNATIVE_SITES.md)
+- Útil para demonstrações
+
 ## 🌐 Sites Alternativos para Testes
 
 Em caso de instabilidade do site principal, os testes podem ser adaptados para os seguintes sites:

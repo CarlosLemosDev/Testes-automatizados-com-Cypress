@@ -1,0 +1,34 @@
+{
+  "success": {
+    "authenticated": true,
+    "customer": {
+      "id": 1,
+      "email": "user@test.com",
+      "firstname": "John",
+      "lastname": "Doe",
+      "logged": 1
+    },
+    "hasError": false
+  },
+  "error": {
+    "authenticated": false,
+    "errors": [
+      "Authentication failed."
+    ],
+    "hasError": true
+  },
+  "invalidEmail": {
+    "authenticated": false,
+    "errors": [
+      "Invalid email address."
+    ],
+    "hasError": true
+  },
+  "emptyFields": {
+    "authenticated": false,
+    "errors": [
+      "An email address required."
+    ],
+    "hasError": true
+  }
+}
