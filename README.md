@@ -1,6 +1,11 @@
 # Cypress Login Tests - Automation Practice
 
-Projeto de testes automatizados para a página de login do site [Automation Practice](http://automationpractice.pl/).
+[![GitHub](https://img.shields.io/github/license/CarlosLemosDev/Testes-automatizados-com-Cypress)](https://github.com/CarlosLemosDev/Testes-automatizados-com-Cypress)
+[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
+
+Projeto de testes automatizados para páginas de login usando Cypress com Page Objects Pattern.
+
+> 🔗 [Ver no GitHub](https://github.com/CarlosLemosDev/Testes-automatizados-com-Cypress)
 
 ## 🌐 Sites Alternativos para Testes
 
