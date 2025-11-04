@@ -4,6 +4,37 @@ describe('Testes da Página de Login - Automation Practice', () => {
     const loginPage = new LoginPage()
 
     beforeEach(() => {
+        // Configuração específica para ambiente mock
+        if (Cypress.env('USE_MOCK')) {
+            cy.intercept('GET', '/index.php?controller=authentication*').as('loginPage')
+            cy.intercept('POST', '/index.php?controller=authentication', (req) => {
+                if (req.body.includes('email=user@test.com') && req.body.includes('passwd=password123')) {
+                    req.reply({
+                        statusCode: 200,
+                        body: {
+                            authenticated: true,
+                            customer: {
+                                id: 1,
+                                email: 'user@test.com',
+                                firstname: 'John',
+                                lastname: 'Doe',
+                                logged: 1
+                            },
+                            hasError: false
+                        }
+                    })
+                } else {
+                    req.reply({
+                        statusCode: 400,
+                        body: {
+                            authenticated: false,
+                            errors: ['Authentication failed.'],
+                            hasError: true
+                        }
+                    })
+                }
+            }).as('loginRequest')
+        }
         loginPage.visit()
     })
 

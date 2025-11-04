@@ -1,14 +1,17 @@
 // Comando para configurar os mocks de autenticação
 Cypress.Commands.add('mockAuthRequests', () => {
   // Mock da página de login
-  cy.intercept('GET', '**/authentication**', {
+  cy.intercept('GET', '/', {
     statusCode: 200,
     fixture: 'mocks/login-page.json'
   }).as('loginPage')
 
   // Mock de login com sucesso
-  cy.intercept('POST', '**/authentication**', (req) => {
-    if (req.body.includes('email=user@test.com') && req.body.includes('passwd=password123')) {
+  cy.intercept('POST', '/index.php?controller=authentication', (req) => {
+    const email = req.body.match(/email=([^&]*)/)?.[1];
+    const password = req.body.match(/passwd=([^&]*)/)?.[1];
+
+    if (email === 'user@test.com' && password === 'password123') {
       req.reply({
         statusCode: 200,
         fixture: 'mocks/auth-responses.json',
@@ -16,14 +19,14 @@ Cypress.Commands.add('mockAuthRequests', () => {
           'content-type': 'application/json',
         }
       })
-    } else if (!req.body.includes('email=') || !req.body.includes('passwd=')) {
+    } else if (!email || !password) {
       req.reply({
         statusCode: 400,
         body: {
           errors: ['An email address required.']
         }
       })
-    } else if (!req.body.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    } else if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       req.reply({
         statusCode: 400,
         body: {

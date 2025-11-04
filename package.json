@@ -7,13 +7,17 @@
     "cypress:run": "cypress run",
     "cypress:run:local": "cypress run --config baseUrl=http://localhost/prestashop",
     "cypress:run:mock": "cypress run --env USE_MOCK=true",
-    "test": "npm run cypress:run:mock"
+    "test": "npm run cypress:run:mock",
+    "start:mock": "node mock-server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "cypress": "^15.5.0"
+    "cors": "^2.8.5",
+    "cypress": "^15.5.0",
+    "express": "^5.1.0",
+    "json-server": "^1.0.0-beta.3"
   }
 }

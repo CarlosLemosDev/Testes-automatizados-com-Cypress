@@ -1,0 +1,28 @@
+{
+  "auth": {
+    "success": {
+      "authenticated": true,
+      "customer": {
+        "id": 1,
+        "email": "user@test.com",
+        "firstname": "John",
+        "lastname": "Doe",
+        "logged": 1
+      },
+      "hasError": false
+    },
+    "error": {
+      "authenticated": false,
+      "errors": [
+        "Authentication failed."
+      ],
+      "hasError": true
+    }
+  },
+  "pages": {
+    "login": {
+      "title": "Login - My Store",
+      "content": "<div class='login-page'>...</div>"
+    }
+  }
+}
